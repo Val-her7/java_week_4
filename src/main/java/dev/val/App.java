@@ -18,6 +18,9 @@ public class App
         }
         Car myCar = context.getBean(Car.class);
         myCar.drive();
+
+        Dev me = context.getBean(Dev.class);
+        me.build();
         
     }
 }

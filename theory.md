@@ -126,3 +126,22 @@ Même si plusieurs objets dépendent de Engine, ils recevront la même instance.
 @Scope("prototype")
 public class Engine { }
 ```
+
+## Choix entre plusieurs options
+
+Par exemple, on créé une interface computer et des classes laptop et desktop qui implémentent cette interface. Cela permet de faire du loose coupling en utilisant computer à la place de hard code laptop ou desktop. Le problème est comment spring doit choisir le bon?
+
+### Solution avec @Primary
+```java
+@Component
+@Primary
+// en cas de confusion, cette classe sera préférée
+```
+
+### SOlution avec @Qualifier
+```java
+@Autowired
+@Qualifier("laptop")
+Computer computer;
+// à utiliser avec un field injection en spécifiant le nom de l'instance de la classe (Bean name) (= nom de la classe sans majuscules)
+```
