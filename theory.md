@@ -138,7 +138,7 @@ Par exemple, on créé une interface computer et des classes laptop et desktop q
 // en cas de confusion, cette classe sera préférée
 ```
 
-### SOlution avec @Qualifier
+### Solution avec @Qualifier
 ```java
 @Autowired
 @Qualifier("laptop")
