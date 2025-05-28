@@ -11,7 +11,7 @@ public class SpringApplicationWithXML {
         myteam.play();
         System.out.println(myteam.getName());
 
-        Player myplayer = (Player) context.getBean("player");
+        Player myplayer = context.getBean(Player.class);
         System.out.println(myplayer.age);
     }
 }

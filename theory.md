@@ -145,3 +145,56 @@ Par exemple, on créé une interface computer et des classes laptop et desktop q
 Computer computer;
 // à utiliser avec un field injection en spécifiant le nom de l'instance de la classe (Bean name) (= nom de la classe sans majuscules)
 ```
+
+## 🌱 Spring Framework: XML config vs Annotations
+
+### 📦 1. Configuration XML
+
+#### ✅ Avantages
+- Séparation claire entre configuration et logique métier.
+- Vue centralisée des beans.
+- Adaptée aux classes tierces (non modifiables).
+
+#### ⚙️ Exemple
+```xml
+<bean id="myService" class="com.example.MyService">
+    <property name="repository" ref="myRepo"/>
+</bean>
+
+<bean id="myRepo" class="com.example.MyRepository"/>
+```
+#### 🔍 Utilisation
+```java
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+MyService service = context.getBean("myService");
+```
+
+### 🧩 2. Configuration par Annotations
+
+#### ✅ Avantages
+- Moins de code, plus lisible.
+
+- Compatible avec Spring Boot.
+
+- Détection automatique des composants.
+
+#### ⚙️ Exemple
+```java
+@Component
+public class MyRepository {}
+
+@Service
+public class MyService {
+    @Autowired
+    private MyRepository repository;
+}
+```
+#### 🔍 Utilisation
+```java
+@Configuration
+@ComponentScan("com.example")
+public class AppConfig {}
+
+ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+MyService service = context.getBean(MyService.class);
+```
