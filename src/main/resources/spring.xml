@@ -5,7 +5,16 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="team" class="dev.val.Team">
+        <!-- property is used to set default value via setter -->
+        <property name="name" value="Bayern" />
+        <!-- constructor but this time with an object Player, inject Bean player (id) via ref -->
+        <constructor-arg ref="player" />
 
     </bean>
-    
+
+    <bean id="player" class="dev.val.Player">
+        <!-- constructor-arg is used to set default value via constructor -->
+        <constructor-arg value="17" />
+    </bean>
+
 </beans>
