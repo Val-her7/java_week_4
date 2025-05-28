@@ -11,9 +11,9 @@ L’Inversion of Control est un principe selon lequel **le contrôle de la créa
 La **Dependency Injection (DI)** est une manière d’implémenter l’IoC. On fournit ("injecte") à un objet ses dépendances **depuis l’extérieur**, au lieu de les créer lui-même.
 
 ### Types d'injection :
-- 🧱 Par **constructeur**
-- 🧰 Par **setter**
-- 🧩 Par **interface** (moins courant)
+- 🧱 Par **constructeur** (@Autowire pas obligé)
+- 🧰 Par **setter** (@Autowire obligé)
+- 🧩 Par **field** (@Autowire obligé)
 
 ---
 
