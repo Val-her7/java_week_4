@@ -21,6 +21,6 @@ public class App
 
         Dev me = context.getBean(Dev.class);
         me.build();
-        
+        ((AnnotationConfigApplicationContext) context).close();
     }
 }
