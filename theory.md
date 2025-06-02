@@ -198,3 +198,44 @@ public class AppConfig {}
 ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 MyService service = context.getBean(MyService.class);
 ```
+
+## ✅ Tests unitaires avec Mockito
+
+### 🧪 Pourquoi utiliser Mockito ?
+
+Mockito est une bibliothèque Java qui permet de :
+
+- Créer des objets **factices (mocks)**.
+- **Simuler** le comportement de ces objets.
+- **Vérifier** si certaines méthodes ont été appelées ou non.
+
+Cela permet de tester une classe **de manière isolée**, sans dépendre de la logique réelle de ses dépendances.
+
+---
+
+### ⚠️ À savoir : comportement par défaut des mocks
+
+Quand on crée un mock, **aucune logique réelle** n'est exécutée. Toutes les méthodes retournent des valeurs par défaut :
+
+| Type         | Valeur par défaut |
+|--------------|-------------------|
+| `int`        | `0`               |
+| `boolean`    | `false`           |
+| `String`     | `null`            |
+| `Object`     | `null`            |
+
+> Exemple : un mock de `Command` renverra `null` pour `getName()` tant qu’on n’a rien défini.
+
+---
+
+### 🧩 Syntaxe de base
+
+#### 🟡 Simuler une méthode qui retourne une valeur
+
+```java
+when(mock.method()).thenReturn(valeur);
+```
+#### 🟢 Vérifier qu’une méthode a été appelée
+```java
+verify(mock).method();
+```
