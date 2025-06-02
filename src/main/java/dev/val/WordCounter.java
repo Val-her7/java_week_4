@@ -13,7 +13,7 @@ public class WordCounter {
 
     public Map<String, Integer> wordCounter(String sentence){
 
-        String cleanSentence = sentence.replaceAll("[^\\p{L}\\p{Nd} ]+", "").toLowerCase();
+        String cleanSentence = sentence.replaceAll("[^\\p{L}\\p{Nd} ]+", " ").toLowerCase();
         String[] words = cleanSentence.split("\\s+");
 
         for(String word: words){
